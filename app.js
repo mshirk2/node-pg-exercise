@@ -2,11 +2,17 @@
 
 
 const express = require("express");
+const ExpressError = require("./expressError")
+const companyRoutes = require("./routes/companies");
+const invoiceRoutes = require("./routes/invoices");
 
 const app = express();
-const ExpressError = require("./expressError")
 
 app.use(express.json());
+
+//  apply prefix /company or /invoice to routes according to route file
+app.use("/company", companyRoutes);
+app.use("/invoice", invoiceRoutes);
 
 
 /** 404 handler */
