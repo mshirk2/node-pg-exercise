@@ -9,7 +9,7 @@ const router = new express.Router();
 ////////////////////// GET /invoices
 // Return info on invoices: like {invoices: [{id, comp_code}, ...]}
 
-router.get("", async function(req, res, next) {
+router.get("/", async function(req, res, next) {
     try {
         const result = await db.query(
             `SELECT id, comp_code
@@ -49,7 +49,7 @@ router.get("/:id", async function(req, res, next){
         );
 
         if (result.rows.length === 0) {
-            throw new ExpressError(`Invoice not found ${code}`, 404)
+            throw new ExpressError(`Invoice not found ${id}`, 404)
         }
 
         const data = result.rows[0];

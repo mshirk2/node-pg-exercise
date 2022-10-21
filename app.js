@@ -10,9 +10,9 @@ const app = express();
 
 app.use(express.json());
 
-//  apply prefix /company or /invoice to routes according to route file
-app.use("/company", companyRoutes);
-app.use("/invoice", invoiceRoutes);
+//  apply prefix /companies or /invoices to routes according to route file
+app.use("/companies", companyRoutes);
+app.use("/invoices", invoiceRoutes);
 
 
 /** 404 handler */
